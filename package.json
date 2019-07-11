@@ -1,0 +1,48 @@
+{
+  "name": "mohalla-sabha",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.19.1",
+    "apollo-boost": "^0.4.3",
+    "apollo-link": "^1.2.12",
+    "apollo-link-ws": "^1.0.18",
+    "apollo-utilities": "^1.3.2",
+    "axios": "^0.19.0",
+    "cross-fetch": "^3.0.4",
+    "firebase": "^6.2.4",
+    "graphql": "^14.4.1",
+    "graphql-tag": "^2.10.1",
+    "push.js": "^1.0.9",
+    "rc-tween-one": "^2.4.1",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.8",
+    "react-dom": "^16.8.6",
+    "react-geolocated": "^2.5.0",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.0.1",
+    "styled-components": "^4.2.0",
+    "subscriptions-transport-ws": "^0.9.16"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
