@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Record from './components/problem-collection/record-meeting';
 import App from './components/mapping/App';
 import Heading from './components/common-items/heading';
+import { signout } from '../src/components/services/auth';
 
 const Btn = styled(Button)`
 display: block;
@@ -29,7 +30,7 @@ function LandingPage() {
                 <Btn type="primary"> Mapping </Btn>
             </Link>
             <Link to="/mobile">
-                <Btn type="primary"> Sign Out </Btn>
+                <Btn onClick={signout} type="primary"> Sign Out </Btn>
             </Link>
         </center>
     );

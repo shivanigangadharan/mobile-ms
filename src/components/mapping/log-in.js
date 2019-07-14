@@ -5,14 +5,9 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import BoxDiv from '../common-items/box';
 import Auth from '../services/auth';
-import { signUpWithEmail } from '../services/auth';
-import { existingUserSignOut } from '../services/auth';
-import { signInWithEmail } from '../services/auth';
-//Extract Current user
-import { getCurrentUser } from '../services/auth';
-//reset Email of current user | This needs to be created again in front end
-import { setEmail } from '../services/auth';
+import { existingUserSignIN } from '../services/auth';
 import List from '../mapping/list-screen';
+import { getTokenID } from '../services/auth';
 import firebase from 'firebase';
 import testlogin from '../services/auth';
 import { AuthContext } from '../../auth';
@@ -49,16 +44,13 @@ function NormalLoginForm(props) {
             if (!err) {
                 em = values.email;
                 p = values.password;
-                const user = await signInWithEmail(em, p);
-                console.log("HANDLE SUBMIT CALLED", user);
-                setUser(user);
+                existingUserSignIN(em, p);
             }
         });
     };
     const { getFieldDecorator } = props.form;
     return (
         <StyledLogin>
-            {/* <Auth email={em} password={p} /> */}
             <BoxDiv>
                 <Heading> Log in here please </Heading>
                 <Form onSubmit={e => { handleSubmit(e) }} className="login-form">
@@ -92,12 +84,16 @@ function NormalLoginForm(props) {
                             Forgot password
             </a>
 
+                        {/* <Link to="/mobile/landingpage"> */}
+                        <Button type="primary" htmlType="submit" className="login-form-button">
+                            Log in
+                                </Button>
+                        {/* </Link> */}
                         <Link to="/mobile/landingpage">
                             <Button type="primary" htmlType="submit" className="login-form-button">
-                                Log in
+                                Move to next page
                                 </Button>
                         </Link>
-
                         Or <a href="">register now!</a>
                     </Form.Item>
                 </Form>

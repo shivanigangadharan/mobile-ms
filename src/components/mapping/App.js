@@ -5,6 +5,7 @@ import ManageArea from './manage-area';
 import ManageMS from './manage-ms';
 import { Menu, Icon } from 'antd';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import Advanced from '../mapping/advanced';
 
 function Map() {
   return (
@@ -14,6 +15,7 @@ function Map() {
           <Route path="/mapping/login" component={Login} />
           <Route path="/mapping/list" component={List} />
           <Route path="/mapping/maptable" component={MapTable} />
+          <Route path="/mapping/advanced" component={Advanced} />
 
         </Switch>
       </Router>

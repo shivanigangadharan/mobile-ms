@@ -19,16 +19,18 @@ function Notes(props) {
     function formSubmit(e) {
         e.preventDefault();
         console.log("Venue = ", venue);
-        console.log("Photo = ", fileList);
+        console.log("Photo = ", images);
+        // console.log("Pics = ", pics);
+        // console.log("Add = ", add);
+        console.log("object = ", body)
         console.log("Prob Status 1 = ", ps1);
         console.log("Prob Status 2 = ", ps2);
         console.log("Prob Status 3 = ", ps3);
         console.log("Description = ", description);
         console.log('before axios');
-        axios.post('http://13.235.24.104:8080/api/file/upload', fileList, {
+        axios.post('http://13.235.24.104:8080/api/file/upload', pics, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
-                'Access-Control-Allow-Origin': '*',
             }
         }).then(response => {
             // handle your response;
@@ -45,12 +47,19 @@ function Notes(props) {
     const [ps2, setPs2] = useState('');
     const [ps3, setPs3] = useState('');
     const [description, setDescription] = useState('');
+    const [images, setImages] = useState('');
+    const [pics, setPics] = useState([])
+    const [add, setAdd] = useState([])
+    var body = new FormData();
 
+    function handleChange(e) {
+        const img = e.fileList
+        setImages(img)
+    }
 
     const [previewVisible, setPreviewVisible] = useState(false);
     const [previewImage, setPreviewImage] = useState('');
 
-    const [fileList, setFileList] = useState('');
 
     const uploadButton = (
         <div>
@@ -77,14 +86,11 @@ function Notes(props) {
                     <div className="clearfix">
                         <Upload
                             listType="picture-card"
-                            fileList={fileList}
-                            onChange={e => { setFileList(e.fileList) }}
+                            fileList={images}
+                            onChange={handleChange}
                         >
-                            {fileList.length >= 20 ? null : uploadButton}
+                            {images.length >= 20 ? null : uploadButton}
                         </Upload>
-                        <Modal visible={previewVisible} footer={null} onCancel={() => { setPreviewVisible(false) }}>
-                            <img alt="example" style={{ width: '100%' }} src={previewImage} />
-                        </Modal>
                     </div><br />
                     <Text><b> AGENDA POINT-WISE NOTES :</b> </Text>
                     <br /><br />

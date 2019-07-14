@@ -13,6 +13,7 @@ import { graphql, compose } from 'react-apollo';
 import { addMappingData } from '../services/queries';
 import Push from 'push.js';
 
+
 const { Title } = Typography;
 const { TextArea } = Input;
 const { Text } = Typography;
@@ -142,11 +143,11 @@ function List(props) {
                                 <img alt="example" style={{ width: '100%' }} src={previewImage} />
                             </Modal>
                         </div><br />
-                        <Link to="/advanced">
-                            <Btn onClick={e => { handleSubmitBasic(e) }} htmlType="submit" type="primary">Save and fill Advanced details
+                        {/* <Link to="/mapping/advanced"> */}
+                        <Btn onClick={e => { handleSubmitBasic(e) }} htmlType="submit" type="primary">Save and fill Advanced details
                             <Icon type="arrow-right" />
-                            </Btn>
-                        </Link>
+                        </Btn>
+                        {/* </Link> */}
                         <br />
                     </div>
                 </Form>

@@ -21,7 +21,7 @@ import AuthProvider from './auth';
 const client = new ApolloClient({
   uri: "https://delhimohallasabha.herokuapp.com/v1/graphql",
   headers: {
-    'x-hasura-admin-secret': 'msdelhi123',
+    'Authorization': `Bearer ${"xyz"}`
   },
 });
 
