@@ -106,9 +106,9 @@ function Notes(props) {
                     <Text> Description: </Text>
                     <Input onChange={e => { setDescription(e.target.value) }} className="input" type="text" placeholder="Templated based on category" />
                     <br /><br />
-                    {/* <Link to="/record"> */}
-                    <Btn id="btn" htmlType="submit" type="primary"> Submit </Btn>
-                    {/* </Link> */}
+                    <Link to="/record">
+                        <Btn id="btn" htmlType="submit" type="primary"> Submit </Btn>
+                    </Link>
                 </Form>
             </BoxDiv>
 

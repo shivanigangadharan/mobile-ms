@@ -3,11 +3,14 @@ import "firebase/auth";
 import "firebase/database";
 import React, { useContext } from 'react';
 import { AuthContext } from '../../auth';
+import { async } from "q";
+
+import { ApolloClient } from 'apollo-client';
 
 const getMainDefinition = require("apollo-utilities");
 const HttpLink = require("apollo-link-http");
 const split = require("apollo-link");
-const ApolloClient = require("apollo-client");
+// const ApolloClient = require("apollo-client");
 const InMemoryCache = require("apollo-cache-inmemory");
 require("cross-fetch/polyfill");
 require("ws");
@@ -55,9 +58,9 @@ async function createNewUserWithSignUp(email, password) {
 
 export async function existingUserSignIN(email, password) {
     try {
-        const user = await firebase.auth().signInWithEmailAndPassword(email, password);
-        console.log("user: ", user);
-        getTokenID(user);
+        const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+        console.log("user: ", userCredential);
+        await getTokenID(userCredential);
         return ("loggedin");
     }
     catch (error) {
@@ -71,21 +74,23 @@ export function testlogin() {
     return user1;
 }
 
-export function getTokenID(user) {
-    console.log("getTokenID fn called");
-    const tokenx = async () => { await user.getIdToken() };
-    const idTokenResult = user.getIdTokenResult();
+export async function getTokenID(userCredential) {
+
+    const tokenx = await userCredential.user.getIdToken();
+    const idTokenResult = await userCredential.user.getIdTokenResult();
     const hasuraClaim = idTokenResult.claims["https://hasura.io/jwt/claims"];
     if (hasuraClaim) {
         tx = tokenx;
     } else {
-        const metadataRef = firebase.database().ref("metadata/" + user.uid + "/refreshTime");
+        //refresh reqd or not check
+        const metadataRef = firebase.database().ref("metadata/" + userCredential.uid + "/refreshTime");
         metadataRef.on("value", async () => {
-            const token = await user.getIdToken(true);
+            const token = await userCredential.getIdToken(true);
         });
     }
+
     console.log("JWT = ", tx);
-    console.log("getTokenID fn ENDS HERE = ");
+
 };
 
 
