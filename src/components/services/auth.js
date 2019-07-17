@@ -4,7 +4,6 @@ import "firebase/database";
 import React, { useContext } from 'react';
 import { AuthContext } from '../../auth';
 import { async } from "q";
-
 import { ApolloClient } from 'apollo-client';
 
 const getMainDefinition = require("apollo-utilities");
@@ -28,7 +27,6 @@ var firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-var tx;
 
 //Loads Content if status != loading
 export const signout = async () => {
@@ -60,37 +58,28 @@ export async function existingUserSignIN(email, password) {
     try {
         const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
         console.log("user: ", userCredential);
-        await getTokenID(userCredential);
-        return ("loggedin");
+        return userCredential;
     }
     catch (error) {
         console.log(error);
     }
 }
 
-export function testlogin() {
-    var user1 = firebase.auth().currentUser;
-    console.log("var user = ", user1);
-    return user1;
-}
-
-export async function getTokenID(userCredential) {
+export async function getTokenID(userCredential, setT) {
 
     const tokenx = await userCredential.user.getIdToken();
     const idTokenResult = await userCredential.user.getIdTokenResult();
     const hasuraClaim = idTokenResult.claims["https://hasura.io/jwt/claims"];
     if (hasuraClaim) {
-        tx = tokenx;
+        setT(tokenx);
     } else {
         //refresh reqd or not check
         const metadataRef = firebase.database().ref("metadata/" + userCredential.uid + "/refreshTime");
         metadataRef.on("value", async () => {
-            const token = await userCredential.getIdToken(true);
+            setT(userCredential.getIdToken(true));
         });
     }
-
-    console.log("JWT = ", tx);
-
+    return null;
 };
 
 

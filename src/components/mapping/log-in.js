@@ -37,14 +37,15 @@ var em = "";
 var p = "";
 
 function NormalLoginForm(props) {
-    const [user, setUser] = useContext(AuthContext);
+    const [t, setT] = useContext(AuthContext);
     function handleSubmit(e) {
         e.preventDefault();
         props.form.validateFields(async (err, values) => {
             if (!err) {
                 em = values.email;
                 p = values.password;
-                existingUserSignIN(em, p);
+                const usercred = await existingUserSignIN(em, p);
+                getTokenID(usercred, setT);
             }
         });
     };

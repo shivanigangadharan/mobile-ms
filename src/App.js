@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import 'antd/dist/antd.css';
 import LandingPage from './landing-page';
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
@@ -17,35 +17,36 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider, Query, Mutation } from 'react-apollo';
 import Login from '../src/components/mapping/log-in';
 import AuthProvider from './auth';
+import { AuthContext } from '../src/auth';
 
-const client = new ApolloClient({
-  uri: "https://delhimohallasabha.herokuapp.com/v1/graphql",
-  headers: {
-    'Authorization': `Bearer ${"xyz"}`
-  },
-});
-
-function App() {
+function App(props) {
+  console.log(useContext(AuthContext));
+  const [t, setT] = useContext(AuthContext);
+  const client = new ApolloClient({
+    uri: "https://delhimohallasabha.herokuapp.com/v1/graphql",
+    headers: t == null ? {} : {
+      'Authorization': `Bearer ${t}`,
+    }
+  });
+  console.log("APP JWT = ", t);
   return (
-    <AuthProvider>
-      <ApolloProvider client={client}>
-        <Router>
-          <Switch>
-            <Route path="/mobile" exact component={Login} />
-            <Route path="/mobile/landingpage" component={LandingPage} />
-            <Route path="/mobile/problemlist" component={ProblemList} />
-            <Route path="/mobile/dashboard" component={Dashboard} />
-            <Route path="/mobile/filter" component={Filter} />
-            <Route path="/mobile/details" component={Details} />
-            <Route path="/record/" component={Record} />
-            <Route path="/notes/" component={Notes} />
-            <Route path="/problem/" component={Problem} />
-            <Route path="/mapping/" component={Map} />
-            <Route path="/advanced/" component={Advanced} />
-          </Switch>
-        </Router>
-      </ApolloProvider>
-    </AuthProvider>
+    <ApolloProvider client={client}>
+      <Router>
+        <Switch>
+          <Route path="/mobile" exact component={Login} />
+          <Route path="/mobile/landingpage" component={LandingPage} />
+          <Route path="/mobile/problemlist" component={ProblemList} />
+          <Route path="/mobile/dashboard" component={Dashboard} />
+          <Route path="/mobile/filter" component={Filter} />
+          <Route path="/mobile/details" component={Details} />
+          <Route path="/record/" component={Record} />
+          <Route path="/notes/" component={Notes} />
+          <Route path="/problem/" component={Problem} />
+          <Route path="/mapping/" component={Map} />
+          <Route path="/advanced/" component={Advanced} />
+        </Switch>
+      </Router>
+    </ApolloProvider>
   );
 }
 

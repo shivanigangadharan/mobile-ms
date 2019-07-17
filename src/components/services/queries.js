@@ -10,7 +10,7 @@ mutation(
       $NumberOfHouses: Int,
       $MSLocation: String
     ) {
-    insert_Area(objects: {AreaName: $AreaName, NoOfHouses: $NumberOfHouses, AreaID: 312}) {
+    insert_Area(objects: {AreaName: $AreaName, NoOfHouses: $NumberOfHouses, AreaID: 108108}) {
       affected_rows
       returning {
         AreaID
@@ -18,7 +18,7 @@ mutation(
         NoOfHouses
       }
     }
-    insert_Ms(objects: {MsID: 312, MsLocation: $MSLocation, MsName: $MSName, Addr_Range: $HouseRange}) {
+    insert_Ms(objects: {MsID: 108108, MsLocation: $MSLocation, MsName: $MSName, Addr_Range: $HouseRange}) {
       affected_rows
       returning {
         MsID
@@ -27,7 +27,7 @@ mutation(
         Addr_Range
       }
     }
-    insert_User(objects: {FullName: $Observer, UserID: 312}) {
+    insert_User(objects: {FullName: $Observer, UserID: 108108}) {
       affected_rows
       returning {
         UserID

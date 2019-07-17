@@ -31,11 +31,11 @@ function MapTable() {
         <Menu.Item onClick={e => { setTabChoice("area") }}>
           <Icon type="mail" />
           Manage Area-wise
-</Menu.Item>
+        </Menu.Item>
         <Menu.Item onClick={e => { setTabChoice("ms") }}>
           <Icon type="mail" />
           Manage MS-wise
-</Menu.Item>
+      </Menu.Item>
       </Menu>
       <div hidden={tabchoice == "area" ? false : true}>
         <ManageArea />
