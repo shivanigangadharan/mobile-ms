@@ -25,8 +25,8 @@
     "subscriptions-transport-ws": "^0.9.16"
   },
   "scripts": {
-    "start": "react-scripts start && cra-append-sw --mode dev ./custom-sw.js",
-    "build": "react-scripts build && cra-append-sw ./custom-sw.js",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
