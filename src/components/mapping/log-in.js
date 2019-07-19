@@ -53,7 +53,7 @@ function NormalLoginForm(props) {
     return (
         <StyledLogin>
             <BoxDiv>
-                <Heading> Log in here please </Heading>
+                <Heading> LOG IN </Heading>
                 <Form onSubmit={e => { handleSubmit(e) }} className="login-form">
                     <Form.Item>
                         {getFieldDecorator('email', {

@@ -6,7 +6,6 @@ import ProblemList from './components/track-problem/problem-list';
 import Filter from './components/track-problem/filter';
 import Dashboard from './components/track-problem/dashboard';
 import Details from './components/track-problem/details';
-import Log from './components/problem-collection/log-in';
 import Record from './components/problem-collection/record-meeting';
 import Notes from './components/problem-collection/meeting-notes';
 import Problem from './components/problem-collection/problem';

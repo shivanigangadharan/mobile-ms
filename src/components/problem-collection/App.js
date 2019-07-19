@@ -1,5 +1,4 @@
 import React from 'react';
-import Log from './log-in';
 import Record from './record-meeting';
 import Notes from './meeting-notes';
 import Problem from './problem';
@@ -11,7 +10,6 @@ function App() {
       <center>
         <Router>
           <Switch>
-            <Route path="/" exact component={Log} />
             <Route path="/record/" component={Record} />
             <Route path="/notes/" component={Notes} />
             <Route path="/problem/" component={Problem} />
