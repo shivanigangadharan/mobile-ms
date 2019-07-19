@@ -45,35 +45,28 @@ serviceWorker.register();
 // console.log(Notification.permission);
 
 // navigator.serviceWorker.register('serviceWorker.js');
-// Notification.requestPermission(function (result) {
-//     if (result === 'granted') {
-//         navigator.serviceWorker.ready.then(function (registration) {
-//             registration.showNotification('Vibration Sample', {
-//                 body: 'HeLLO WORLD',
-//                 vibrate: [200, 100, 200, 100, 200, 100, 200],
-//                 tag: 'vibration-sample'
-//             });
-//         });
-//         console.log("Permission granted. ");
 
-//     }
-//     else {
-//         console.log("Permission not received");
-//     }
-// });
+Notification.requestPermission(function (result) {
+    if (result === 'granted') {
+        navigator.serviceWorker.ready.then(function (registration) {
+            registration.showNotification('Notification Heading', {
+                body: 'Body of notification',
+                vibrate: [200, 100, 200, 100, 200],
+                image: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
 
-// const notif = Notification.requestPermission(function (result) {
-//     if (result === 'granted') {
-//         navigator.serviceWorker.ready.then(function (registration) {
-//             registration.showNotification('Test notification', {
-//                 body: 'Body of notifc'
-//             })
-//         })
-//     }
-// })
+            });
+        });
+        console.log("Permission granted. ");
 
-const mynote = new Notification("Hello world", {
-    body: 'Body of notif',
-    image: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+    }
+    else {
+        console.log("Permission not received");
+    }
 });
+
+
+// const mynote = new Notification("Hello world", {
+//     body: 'Body of notif',
+//     image: 'https://images.pexels.com/photos/814499/pexels-photo-814499.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500'
+// });
 
