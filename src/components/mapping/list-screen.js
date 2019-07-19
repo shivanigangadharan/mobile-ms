@@ -96,6 +96,20 @@ function List(props) {
                 MSLocation: mslocation
             }
         });
+        // console.log('before axios');
+        // axios.post('http://13.235.24.104:8080/api/file/upload', fileList, {
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded',
+        //         'Access-Control-Allow-Origin': '*',
+        //     }
+        // }).then(response => {
+        //     // handle your response;
+        //     console.log("sent!");
+        // }).catch(error => {
+        //     // handle your error
+        //     console.log(error)
+        // });
+        // console.log("after axios")
     }
 
 
