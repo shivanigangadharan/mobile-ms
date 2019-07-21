@@ -17,24 +17,37 @@ function onChange(date, dateString) {
 function Notes(props) {
 
     function formSubmit(e) {
+
+        for (var i = 0; i < images.length; i++) {
+            pics.push(images[i].name);
+        }
+
         e.preventDefault();
         console.log("Venue = ", venue);
         console.log("Photo = ", images);
-        // console.log("Pics = ", pics);
+        console.log("Pics = ", pics);
         // console.log("Add = ", add);
         console.log("object = ", body)
+        console.log("Images = ", images)
         console.log("Prob Status 1 = ", ps1);
         console.log("Prob Status 2 = ", ps2);
         console.log("Prob Status 3 = ", ps3);
         console.log("Description = ", description);
         console.log('before axios');
-        axios.post('http://13.235.24.104:8080/api/file/upload', pics, {
+
+
+
+        axios.post('http://13.235.24.104:8080/api/upload', body, {
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
+                'Postman-Token': '5ca18ea6-ebc8-4970-a980-c3f78798ba3e',
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json',
+                'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
             }
-        }).then(response => {
-            // handle your response;
-            console.log("sent!");
+        }).then(function (response) {
+
+            console.log("response received = ", response);
+
         }).catch(error => {
             // handle your error
             console.log(error)
@@ -47,7 +60,7 @@ function Notes(props) {
     const [ps2, setPs2] = useState('');
     const [ps3, setPs3] = useState('');
     const [description, setDescription] = useState('');
-    const [images, setImages] = useState('');
+    const [images, setImages] = useState([]);
     const [pics, setPics] = useState([])
     const [add, setAdd] = useState([])
     var body = new FormData();
@@ -55,6 +68,16 @@ function Notes(props) {
     function handleChange(e) {
         const img = e.fileList
         setImages(img)
+        body = {
+            file: {
+                value: "downloads/", //address of image
+                options: {
+                    filename: img[0].name,  //filename
+                    contentType: img[0].type    //type of image 
+                }
+            }
+        }
+
     }
 
     const [previewVisible, setPreviewVisible] = useState(false);
@@ -106,9 +129,9 @@ function Notes(props) {
                     <Text> Description: </Text>
                     <Input onChange={e => { setDescription(e.target.value) }} className="input" type="text" placeholder="Templated based on category" />
                     <br /><br />
-                    <Link to="/record">
-                        <Btn id="btn" htmlType="submit" type="primary"> Submit </Btn>
-                    </Link>
+                    {/* <Link to="/record"> */}
+                    <Btn id="btn" htmlType="submit" type="primary"> Submit </Btn>
+                    {/* </Link> */}
                 </Form>
             </BoxDiv>
 
