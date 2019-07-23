@@ -33,6 +33,9 @@ function App(props) {
       <Router>
         <Switch>
           <Route path="/mobile" exact component={Login} />
+          componentDidMount(){
+            document.title = "Mohalla Sabha Mobile App"
+          }
           <Route path="/mobile/landingpage" component={LandingPage} />
           <Route path="/mobile/problemlist" component={ProblemList} />
           <Route path="/mobile/dashboard" component={Dashboard} />

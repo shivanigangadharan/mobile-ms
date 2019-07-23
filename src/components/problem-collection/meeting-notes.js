@@ -15,7 +15,7 @@ function onChange(date, dateString) {
 }
 
 function Notes(props) {
-
+    console.log(props.data)
     function formSubmit(e) {
 
         for (var i = 0; i < images.length; i++) {
@@ -34,16 +34,12 @@ function Notes(props) {
         console.log("Prob Status 3 = ", ps3);
         console.log("Description = ", description);
         console.log('before axios');
-
-
-
         axios.post('http://13.235.24.104:8080/api/upload', body, {
-            headers: {
-                'Postman-Token': '5ca18ea6-ebc8-4970-a980-c3f78798ba3e',
-                'cache-control': 'no-cache',
+            headers:
+            {
                 'Content-Type': 'application/json',
-                'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW',
-            }
+                'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
+            },
         }).then(function (response) {
 
             console.log("response received = ", response);
@@ -54,15 +50,6 @@ function Notes(props) {
         });
         console.log("after axios")
     }
-
-    const [venue, setVenue] = useState('');
-    const [ps1, setPs1] = useState('');
-    const [ps2, setPs2] = useState('');
-    const [ps3, setPs3] = useState('');
-    const [description, setDescription] = useState('');
-    const [images, setImages] = useState([]);
-    const [pics, setPics] = useState([])
-    const [add, setAdd] = useState([])
     var body = new FormData();
 
     function handleChange(e) {
@@ -70,7 +57,7 @@ function Notes(props) {
         setImages(img)
         body = {
             file: {
-                value: "downloads/", //address of image
+                value: "C:/Users/Shivani Gangadharan/Downloads/bot face.png", //address of image
                 options: {
                     filename: img[0].name,  //filename
                     contentType: img[0].type    //type of image 
@@ -80,9 +67,14 @@ function Notes(props) {
 
     }
 
-    const [previewVisible, setPreviewVisible] = useState(false);
-    const [previewImage, setPreviewImage] = useState('');
-
+    const [venue, setVenue] = useState('');
+    const [ps1, setPs1] = useState('');
+    const [ps2, setPs2] = useState('');
+    const [ps3, setPs3] = useState('');
+    const [description, setDescription] = useState('');
+    const [images, setImages] = useState([]);
+    const [pics, setPics] = useState([])
+    const [add, setAdd] = useState([])
 
     const uploadButton = (
         <div>

@@ -8,10 +8,10 @@ import RadioGroup from 'antd/lib/radio/group';
 import Advanced from './advanced';
 import { Link } from 'react-router-dom';
 import BoxDiv from '../common-items/box';
-// import { App } from './map';
 import { graphql, compose } from 'react-apollo';
 import { addMappingData } from '../services/queries';
 import axios from 'axios'
+import { MapView } from './map';
 
 const { Title } = Typography;
 const { TextArea } = Input;
@@ -21,10 +21,10 @@ const UploadImg = styled(Upload)`
 
 `
 
-// const Map = styled.div`
-//     width: 80%;
-//     margin: 2%;
-// `
+const Map = styled.div`
+    width: 80%;
+    margin: 2%;
+`
 const H4 = styled(Title)`
     margin-top: 2%;
     margin-left: 18%;
@@ -127,7 +127,9 @@ function List(props) {
                         <Text> Map with Mohalla Sabha marked: </Text>
 
 
-                        {/* <Map><App /></Map> */}
+                        <Map>
+                            <MapView />
+                        </Map>
 
                         <br />
                         <Text> Suggested location for Mohalla Sabha: </Text>
