@@ -14,6 +14,9 @@ margin-top:1%;
 const { TextArea } = Input;
 const IP = styled(Input)`
 `
+const CheckGPS = styled(Checkbox)`
+    font-size: 120%;
+`
 const AutofillButton = styled(Button)`
   display: inline;
   margin: 1%;
@@ -144,12 +147,13 @@ function Problem(props) {
                         onChange={e => { setLocation(e.target.value) }}
                         height="40px" width="80px" type="text" placeholder="Manually typed address" />
                     <br /><br />
-                    <Checkbox
-                        checked={gpsChecked}
-                        onChange={e => { setGpsChecked(e.target.checked) }}
-                    >Enable GPS Location</Checkbox>
-                    <br /><br />
+                    <center>
+                        <CheckGPS
+                            checked={gpsChecked}
+                            onChange={e => { setGpsChecked(e.target.checked) }}
+                        >Enable GPS Location</CheckGPS></center>
                     <div hidden={category === "Grievance" ? true : false}>
+                        <br />
                         <Text> Budget: </Text>
                         <Input className="input"
                             prefix={<Icon type="dollar" />}
@@ -157,14 +161,15 @@ function Problem(props) {
                             onChange={e => { setBudget(e.target.value) }}
                             type="number" />
                     </div>
-                    <div hidden={category === "Grievance" ? false : true}>
+                    {/* <div hidden={category === "Grievance" ? false : true}>
                         <Text> Category: </Text>
                         <Dropdown overlay={menu2}>
                             <Button className="input">
                                 {option} <Icon type="down" />
                             </Button>
                         </Dropdown> <br />
-                    </div><br />
+                    </div> */}
+                    <br />
                     <Text> Request/Proposal: </Text>
                     <TextArea
                         placeholder="Enter request/proposal"
