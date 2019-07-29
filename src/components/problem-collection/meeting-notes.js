@@ -37,7 +37,9 @@ function Notes(props) {
         axios.post('http://13.235.24.104:8080/api/upload', body, {
             headers:
             {
-                'Content-Type': 'application/json',
+                'Postman-Token': '5ca18ea6-ebc8-4970-a980-c3f78798ba3e',
+                'cache-control': 'no-cache',
+                "Access-Control-Allow-Origin": "*",
                 'content-type': 'multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'
             },
         }).then(function (response) {
@@ -55,7 +57,7 @@ function Notes(props) {
     function handleChange(e) {
         const img = e.fileList
         setImages(img)
-        body = {
+        body.append('file', {
             file: {
                 value: "C:/Users/Shivani Gangadharan/Downloads/bot face.png", //address of image
                 options: {
@@ -63,7 +65,7 @@ function Notes(props) {
                     contentType: img[0].type    //type of image 
                 }
             }
-        }
+        });
 
     }
 
