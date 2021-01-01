@@ -31,7 +31,7 @@ const H4 = styled(Title)`
 `
 
 const Long = styled(TextArea)`
-   
+
 `
 const Btn = styled(Button)`
     margin-left: 12%;
@@ -106,7 +106,7 @@ function List(props) {
             <BoxDiv>
                 <Form>
                     <div hidden={choice == "Basic" ? false : true}>
-                        <Button> Show Notification </Button>
+                        {/* <Button> Show Notification </Button> */}
                         <H4 level={4}> Mapping Information </H4>
                         <br />
                         <Text > Overall Area Name: </Text>
