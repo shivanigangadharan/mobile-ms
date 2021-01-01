@@ -86,12 +86,12 @@ function NormalLoginForm(props) {
                                 Forgot password
             </a>
 
-                            {/* <Link to="/mobile/landingpage"> */}
+                            {/* <Link to="/landingpage"> */}
                             <Button type="primary" htmlType="submit" className="login-form-button">
                                 Log in
                                 </Button>
                             {/* </Link> */}
-                            <Link to="/mobile/landingpage">
+                            <Link to="/landingpage">
                                 <Button type="primary" htmlType="submit" className="login-form-button">
                                     Move to next page
                                 </Button>

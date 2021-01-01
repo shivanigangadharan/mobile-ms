@@ -92,7 +92,7 @@ function Filter() {
     return (
         <div>
             <center>
-                <Heading link="/mobile/problemlist" text="Filter" />
+                <Heading link="/problemlist" text="Filter" />
                 <br />
                 <Label>Category:</Label>
                 <CheckboxCategory onChange={e => { setCategory(e) }} style={{ width: '100%' }} options={categoryOptions} /><br />
@@ -124,7 +124,7 @@ function Filter() {
                 <Label> Date after: </Label>
                 <DatePicker onChange={e => { setDate(e._d) }} /> <br /> <br />
                 <Btn type="primary">Reset</Btn>
-                <Link to="/mobile/problemlist">
+                <Link to="/problemlist">
                     <Btn type="primary" onClick={handleSubmit}>Done</Btn>
                 </Link>
             </center>

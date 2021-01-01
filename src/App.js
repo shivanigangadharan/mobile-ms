@@ -32,15 +32,15 @@ function App(props) {
     <ApolloProvider client={client}>
       <Router>
         <Switch>
-          <Route path="/mobile" exact component={Login} />
+          <Route path="/" exact component={Login} />
           componentDidMount(){
             document.title = "Mohalla Sabha Mobile App"
           }
-          <Route path="/mobile/landingpage" component={LandingPage} />
-          <Route path="/mobile/problemlist" component={ProblemList} />
-          <Route path="/mobile/dashboard" component={Dashboard} />
-          <Route path="/mobile/filter" component={Filter} />
-          <Route path="/mobile/details" component={Details} />
+          <Route path="/landingpage" component={LandingPage} />
+          <Route path="/problemlist" component={ProblemList} />
+          <Route path="/dashboard" component={Dashboard} />
+          <Route path="/filter" component={Filter} />
+          <Route path="/details" component={Details} />
           <Route path="/record/" component={Record} />
           <Route path="/notes/" component={Notes} />
           <Route path="/problem/" component={Problem} />

@@ -23,12 +23,12 @@ function ProblemList() {
     return (
         <div>
             <center>
-                <Heading link="/mobile/landingpage" text="Problem List" />
+                <Heading link="/landingpage" text="Problem List" />
                 <br />
-                <Link to="/mobile/filter/">
+                <Link to="/filter/">
                     <Btn type="primary"> Filter </Btn>
                 </Link>
-                <Link to="/mobile/dashboard/">
+                <Link to="/dashboard/">
                     <Btn type="primary"> Dashboard </Btn>
                 </Link><br />
                 <Label>Active filters: </Label>

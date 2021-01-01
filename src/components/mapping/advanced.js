@@ -41,7 +41,7 @@ const RadioIP = styled(Radio.Group)`
 margin: 1% !important;
 `
 const Long = styled(TextArea)`
-    margin: 1% !important;    
+    margin: 1% !important;
 `
 const Btn = styled(Button)`
     margin: 1%;
@@ -239,7 +239,7 @@ function Advanced() {
                     <Block level={4}> Remarks on the locality: </Block>
                     <Long autosize={{ minRows: 2, maxRows: 6 }} placeholder="Remarks" onChange={e => { setRemarks(e.target.value) }} />
                     <br />
-                    <Link to="/mobile/landingpage">
+                    <Link to="/landingpage">
                         <Button onClick={handleSubmitAdvanced} htmlType="submit" type="primary">Submit</Button>
                     </Link>
                 </Form>

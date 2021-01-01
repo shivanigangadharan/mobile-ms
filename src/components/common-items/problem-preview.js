@@ -5,7 +5,7 @@ import { Collapse, Icon, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { gql} from 'apollo-boost';
 import {graphql} from 'react-apollo';
-    
+
 const getArea = gql`
 query{
     Area{
@@ -36,11 +36,11 @@ function ProblemPreview(props) {
                 bordered={false}
                 defaultActiveKey={['1']}
                 expandIcon={({ isActive }) => <Icon type="caret-right" rotate={isActive ? 90 : 0} />}
-            >  
+            >
                 <Drop header="Problem:
                     Owner:
                     Assignee: N.O./Contractor
-                    Status:" 
+                    Status:"
                  key="2" style={customPanelStyle}>
                     <h4> Problem Title </h4>
                 <p> Problem description and photo </p>
@@ -49,8 +49,8 @@ function ProblemPreview(props) {
                 <p> Date: date of creation </p>
                 <p>Owner: Person name </p>
                 <p> Assignee: N.O./Contractor </p>
-                <p> Latest activity: latest activity info </p>           
-                <Link to="/mobile/details">
+                <p> Latest activity: latest activity info </p>
+                <Link to="/details">
                     <Button type="primary"> Full details </Button>
                 </Link>
                 </Drop>

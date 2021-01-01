@@ -19,11 +19,11 @@ display: block;
 function LandingPage() {
     return (
         <center>
-            <Heading link="/mobile" text="Hi! What would you like to do?"></Heading>
+            <Heading link="/" text="Hi! What would you like to do?"></Heading>
             <Link to="/record">
                 <Btn type="primary"> Record Meeting </Btn>
             </Link>
-            <Link to="/mobile/problemlist" >
+            <Link to="/problemlist" >
                 <Btn type="primary"> Track Problem </Btn>
             </Link>
             <Link to="/mapping/list">

@@ -19,7 +19,7 @@ function Details() {
     return (
         <div>
             <center>
-                <Heading link="/mobile/problemlist" text="Problem Details" />
+                <Heading link="/problemlist" text="Problem Details" />
                 <br />
                 <Left>
                     <Label> Problem Title: </Label>
@@ -82,7 +82,7 @@ function Details() {
                 <Button style={{ margin: '2%' }}> Call <Icon type="phone" /> </Button>
                     <br />
                 </Left>
-                <Link to="/mobile/problemlist">
+                <Link to="/problemlist">
                     <Button type="primary"> Reopen Problem </Button>
                 </Link>
                 <AddComment />

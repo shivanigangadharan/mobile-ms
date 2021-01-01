@@ -22,12 +22,12 @@ function Dashboard() {
     return (
         <div>
             <center>
-                <Heading link="/mobile/problemlist" text="Dashboard" />
+                <Heading link="/problemlist" text="Dashboard" />
                 <br />
-                <Link to="/mobile/filter">
+                <Link to="/filter">
                     <Btn type="primary"> Filter </Btn>
                 </Link>
-                <Link to="/mobile/problemlist">
+                <Link to="/problemlist">
                     <Btn type="primary"> List View </Btn>
                 </Link>
                 <br />

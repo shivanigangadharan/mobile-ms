@@ -28,7 +28,7 @@ function Record() {
 
     return (
         <div><center>
-            <Heading link="/mobile/landingpage" text="Record Meeting after Mohalla Sabha" />
+            <Heading link="/landingpage" text="Record Meeting after Mohalla Sabha" />
             <BoxDiv>
 
                 <Link to="/notes/">
